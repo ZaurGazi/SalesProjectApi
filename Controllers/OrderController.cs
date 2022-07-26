@@ -54,6 +54,16 @@ namespace SalesProjectApi.Controllers
 
             return Ok();
         }
+        [HttpDelete]
+        [Route("DelOrderItem")]
+        public IActionResult DelOrderItem(int id)
+        {
+            var oit = _db.OrderItems.Find(id);
+            _db.OrderItems.Remove(oit);
+            _db.SaveChanges();
+
+            return Ok();
+        }
 
     }
 }
